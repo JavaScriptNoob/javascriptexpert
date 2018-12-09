@@ -21,7 +21,7 @@ function iWillRuleOverTheWorld ($firebaseAuth,$location) {
 	   someOccupiedCountries.author = authData;
 	   //console.log(authData);
 	   if (authData) {
-		$location.url("/src/login.html");
+		$location.url("src/login.html");
 		$scope.$apply(); 
 	}
 	});

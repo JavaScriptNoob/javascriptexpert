@@ -27,7 +27,13 @@ function iWillRuleOverTheWorld ($firebaseAuth,$location) {
 	});
 
 	
-	}
+	};
+	
+	myApp.controller('databaseCtrl',function ($firebaseObject) {
+		const rootRef =  firebase.database().ref().child('geodata');
+		const ref = rootRef.child('object');
+		this.object=$firebaseObject(ref);
+	})
 
 
 

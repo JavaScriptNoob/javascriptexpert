@@ -12,47 +12,7 @@ myApp.config(function ($routeProvider) {
             controller: "loginCtrl"
         });
 });
-angular.module('myApp').controller('authCtrl', 
-								  [	 
-								  	'$firebaseAuth', '$location',
-								  	iWillRuleOverTheWorld
-								  ]);
 
-function iWillRuleOverTheWorld ($firebaseAuth,$location) {
-	var someOccupiedCountries = this;
-	var auth = $firebaseAuth();
-
-	someOccupiedCountries.login = function(){
-	    auth.$signInWithPopup('google');
-	};
-
-	someOccupiedCountries.logout = function(){
-	    auth.$signOut();
-	};
-	
-	auth.$onAuthStateChanged(function(authData ){
-	   someOccupiedCountries.author = authData;
-	   //console.log(authData);
-	   if (authData) {
-		$location.url("login");
-		$scope.$apply(); 
-	}
-	});
-
-	
-	};
-	
-myApp.controller('mainController', function ($scope) {
-
-})
-myApp.controller('loginCtrl', function ($scope) {
-
-});
-myApp.controller('databaseCtrl', function ($firebaseObject) {
-    const rootRef =  firebase.database().ref().child('geodata');
-    const ref = rootRef.child('object');
-    this.object=$firebaseObject(ref);
-});
 
 
 
@@ -102,6 +62,7 @@ window.onload = function () {
             var latitude = location.coords.latitude;
             var longitude = location.coords.longitude;
             console.log(latitude, longitude);
+            window.localStorage.setItem('location', JSON.stringify({latitude: latitude, longitude: longitude}));
         })
     })
 }

@@ -14,7 +14,8 @@ myApp.config(function ($routeProvider) {
 });
 
 
-
+if(window.location.href.indexOf("login") > -1) {
+   
 
 ymaps.ready(init);
 
@@ -63,6 +64,8 @@ window.onload = function () {
             var longitude = location.coords.longitude;
             console.log(latitude, longitude);
             window.localStorage.setItem('location', JSON.stringify({latitude: latitude, longitude: longitude}));
+            
         })
     })
+}
 }

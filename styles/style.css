@@ -1,3 +1,9 @@
+@font-face {
+    font-family: "Makhina"; /* Имя шрифта */
+    src: url("makhina.ttf"); /* Путь к файлу со шрифтом */
+   }
+
+
 
 body {
     background-color: #ed8e1a;
@@ -28,7 +34,8 @@ h3 {
    padding-top: 25px;
    padding-bottom: 25px;
     color: #d8831b;
-    font-weight: 800;
+    font-weight: 1000;
+    font-family: "Makhina";
 
 
 }

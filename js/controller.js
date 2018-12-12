@@ -27,15 +27,15 @@ function iWillRuleOverTheWorld ($firebaseAuth,$location) {
 	
 	auth.$onAuthStateChanged(function(authData ){
 	   someOccupiedCountries.author = authData;
-	   firebase.database().ref().child('USerData').set({
-		BigData: authData
+	//    firebase.database().ref().child('UserData').push({
+	// 	takedata: authData
 		
-	});
+	// });
 	  if(authData) {
 		globalAuth = authData;
 		console.log('ffff',authData);
-	 	$location.url("login");
-		$scope.$apply(); 
+	 	// $location.url("login");
+		// $scope.$apply(); 
 	}
 	});
 
@@ -52,7 +52,7 @@ function iWillRuleOverTheWorld ($firebaseAuth,$location) {
 		// const ref = rootRef.child('object');
 		// this.object = $firebaseObject(ref);
 		var geoCordinates = JSON.parse(window.localStorage.getItem('location'));
-		firebase.database().ref().child('location').set({
+		firebase.database().ref().child(id).set({
 			latitidude: geoCordinates.latitude,
 			longitude: geoCordinates.longitude
 		});
@@ -65,11 +65,21 @@ firebase.auth().onAuthStateChanged((user) => {
 	  id = user.uid;
 	  console.log(1111,id);
 
-	  firebase.database().ref().child('accounts').set({
 	
-		userId: id
+	  firebase.database().ref().child('accounts').orderByChild("userId").equalTo(id).once("value", function (snapshot) {
+		var alreadyExists = false; 
+		snapshot.forEach(function (child) {
+			alreadyExists = true;
+		  });
+		if(!alreadyExists) {
+			console.log("Creating new user ");
+			firebase.database().ref().child('accounts').push({
+				userId: id
+		   });
+		}  
 	  })
-	  console.log(1111,id);
+
+
 	}
   });
 //   firebase.database().ref().child('accounts').push({
@@ -79,9 +89,27 @@ firebase.auth().onAuthStateChanged((user) => {
 document.addEventListener('DOMContentLoaded', function () {console.log(1111,id);
  
 });
+ function valid (form,$location){
+var name = form.textarea.value;
 
 
 
+// for(var key in form.selectChoice) {
+// 	console.log(key);
+// 	console.log(form.selectChoice[key]);
+// }
 
+var index = form.selectChoice.options.selectedIndex;
+var selection = form.selectChoice.options[index].innerText;
+
+
+
+document.getElementById('submit').addEventListener('click', function(e){
+	console.log(1);
+	$location.url("login");
+	$scope.$apply(); 
+});
+
+};
 
 

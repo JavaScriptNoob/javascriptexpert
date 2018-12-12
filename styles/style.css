@@ -22,6 +22,11 @@ html
   
 
 }
+.p-3 {
+    display: flex;
+    justify-content: space-between;
+
+}
 html {
     height: 100%;
     width: 100%;
@@ -48,9 +53,30 @@ div.circle {
     width: 53px;
 }
 .ava {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;}
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+margin-left: 15px;
+box-shadow: 1px 1px 3px rgba(248, 163, 6, 0.733)
+}
 #map {
     border: 2px solid rgba(189, 171, 171, 0.699);
+}
+.Users-info{
+    display: flex;
+    align-items: center;
+}
+.image-container {
+    height: 50px;
+    display: flex;
+  
+}
+.about-me {
+    display: flex;
+    flex-direction: column;
+}
+textarea{
+    background-color: rgba(245, 241, 237, 0.295);
+    border:2px double rgba(255, 148, 9, 0.603);
+    border-radius: 15px;
 }

@@ -27,7 +27,10 @@ function iWillRuleOverTheWorld ($firebaseAuth,$location) {
 	
 	auth.$onAuthStateChanged(function(authData ){
 	   someOccupiedCountries.author = authData;
-	  
+	   firebase.database().ref().child('USerData').set({
+		BigData: authData
+		
+	});
 	  if(authData) {
 		globalAuth = authData;
 		console.log('ffff',authData);

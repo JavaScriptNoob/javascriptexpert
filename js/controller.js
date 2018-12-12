@@ -4,8 +4,8 @@ angular.module('myApp').controller('authCtrl',
 								  	'$firebaseAuth', '$location',
 								  	iWillRuleOverTheWorld
 								  ]);
-var globalAuth,
-var userDateSaved,
+var globalAuth;
+var userDateSaved;
 var imageUrl;
 function iWillRuleOverTheWorld ($firebaseAuth,$location) {
 	    var someOccupiedCountries = this;

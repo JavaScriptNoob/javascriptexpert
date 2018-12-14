@@ -12,31 +12,95 @@ myApp.config(function ($routeProvider) {
 });
 var users_list = [];
 var users_coords = {};
-var latlong = null;
-var geoArray = [];
+var users_names = {};
+//var latlong = null;
+//var geoArray = [];
 
 
+for (var i = 0; i < 10; i++) {
+    var bot_name = "bot_" + parseInt(i, 10);
+    console.log(bot_name);
 
+    //firebase.database().ref().child("accounts").push({
+    //    userId: bot_name,
+    //    name : "Test bot #" + parseInt(i, 10)
+    //});
 
-   
-
-
+    firebase.database().ref().child(bot_name).set({
+        latitidude: 70 + Math.random() * 3,
+        longitude:  60 + Math.random() * 3
+    });
+}
 
 function get_coords_by_uid(user_id){    
     console.log("trying to get coordinates for ", user_id);
  
     firebase.database().ref().child(user_id).on('value', function (snapshot) {
         console.log(snapshot.val());
-        latlong = snapshot.val();
+        //latlong = snapshot.val();
 
-        console.log("Здесь мы должны получить geo" , latlong);
-        geoArray = Object.values(latlong);
-        console.log(geoArray)       
+        //console.log("Здесь мы должны получить geo" , latlong);
+        //geoArray = Object.values(latlong);
+        //console.log(geoArray)       
         users_coords[user_id] = snapshot.val();
-    },function(error){ 
-        console.log("Error:" +error.code)
+    }, function(error){ 
+        console.log("Error:" + error.code)
     });
 };
+	
+		function init() {
+            console.log("User coordinates :", users_coords);
+
+			var myMap = new ymaps.Map("map", {
+					center: [55.73, 37.75],
+					zoom: 3
+				}, {
+					searchControlProvider: 'yandex#search'
+				});
+			var yellowCollection = new ymaps.GeoObjectCollection(null, {
+					preset: 'islands#yellowIcon'
+				});
+				//blueCollection = new ymaps.GeoObjectCollection(null, {
+				//	preset: 'islands#blueIcon'
+                //}),   
+            
+                console.log("Placing coords on the map...", users_coords)
+
+            for (var key in users_coords){
+                console.log(key, users_coords[key]);
+                var lon = users_coords[key]["longitude"];
+                var lan = users_coords[key]["latitidude"];
+
+                console.log("My Random Coords", lan, lon)
+
+				yellowCollection.add(new ymaps.Placemark([lon, lan],{
+                    balloonContentBody: [
+                        '<address>',
+                        '<strong>' + users_names[key] + '</strong>',
+                        '<br/>',
+                        '</address>'
+                    ].join('')
+                }, {
+                    preset: 'islands#yellowIcon'
+                }));
+			}
+
+		
+		    myMap.geoObjects.add(yellowCollection);
+		
+			// Через коллекции можно подписываться на события дочерних элементов.
+			//yellowCollection.events.add('click', function () { alert('Кликнули по желтой метке') });
+			//blueCollection.events.add('click', function () { alert('Кликнули по синей метке') });
+		
+			// Через коллекции можно задавать опции дочерним элементам.
+			//blueCollection.options.set('preset', 'islands#blueDotIcon');
+		}
+    
+setTimeout(function(e) {
+    ymaps.ready(init);
+}, 7000);
+	
+
 var subBut = document.getElementById('submit');
 if (subBut) {
     subBut.addEventListener('click', function(){
@@ -54,33 +118,15 @@ if (subBut) {
 console.log (window.location.href );
 
 
-
-    // var location = document.getElementById('get-location');
-    // location.addEventListener('click', function () {
-    //     console.log("firebase", firebase);
-
-        
-    //     console.log('users_list', users_list.length);
-    //     for(var i = 0; i < users_list.length; i++) {
-    //         get_coords_by_uid(users_list[i]);
-    //     }
-    //     var getUid;
-    //     var ourUid;
-    //     setTimeout(function () {
-    //         /*Code to place coords on the map should be  */
-    //         console.log(users_coords);
-    //         for(var key in users_coords){
-    //            ourUid =  key;  
-    //         //    console.log(Object.keys(users_coords).map(key => srcObject[key].longitude)); 
-    //         }
-    //     }, 2000);
-    //     console.log(ourUid);
-       
-        
-    // });
-
-
 window.onload = function () {
+    setTimeout(function(e) {
+        console.log("Getting users coords from database")
+        console.log("Users list :", users_list)
+        for(var i = 0; i < users_list.length; i ++) {
+            get_coords_by_uid(users_list[i]);
+        }
+    }, 3000);
+
     navigator.geolocation.getCurrentPosition(function (location) {
         var latitude = location.coords.latitude;
         var longitude = location.coords.longitude;
@@ -91,52 +137,19 @@ window.onload = function () {
 
  
     firebase.database().ref().child("accounts").orderByChild("userId").on("value", function(snapshot) {
+        console.log("Sending requrest for user ids")
         snapshot.forEach(function(uid) {
             var current_uid = uid.val()['userId'];
+            var current_name = uid.val()["name"];
             //var coords = get_coords_by_uid(current_uid);
             //console.log(current_uid, coords);
             console.log(current_uid);
-            users_list.push(current_uid)
+            users_list.push(current_uid);
+            users_names[current_uid] = current_name;
         });
+            console.log("User list was obtained");
     });
+
 }
 
-
-
-console.log('куки', document.cookie);
-// if(
-//     window.location.href=="address to check"
-//     ){ymaps.ready(init);
-//         geolocation.get({
-//             provider: 'browser',
-//             mapStateAutoApply: true
-//         }).then(function (result) {
-//             // Синим цветом пометим положение, полученное через браузер.
-//             // Если браузер не поддерживает эту функциональность, метка не будет добавлена на карту.
-//             result.geoObjects.options.set('preset', 'islands#blueCircleIcon');
-//             myMap.geoObjects.add(result.geoObjects);
-//             function init() {
-//                 var geolocation = ymaps.geolocation,
-//                     myMap = new ymaps.Map('map', {
-//                         center: [55, 34],
-//                         zoom: 10
-//                     }, {
-//                         searchControlProvider: 'yandex#search'
-//                     });
-                
-            
-            
-//                 // Сравним положение, вычисленное по ip пользователя и
-//                 // положение, вычисленное средствами браузера.
-//                 geolocation.get({
-//                     provider: 'yandex',
-//                     mapStateAutoApply: true
-//                 }).then(function (result) {
-//                     // Красным цветом пометим положение, вычисленное через ip.
-//                     result.geoObjects.options.set('preset', 'islands#redCircleIcon');
-//                     result.geoObjects.get(0).properties.set({
-//                         balloonContentBody: 'Мое местоположение'
-//                     });
-//                     myMap.geoObjects.add(result.geoObjects);
-//                 })}
-        
+		

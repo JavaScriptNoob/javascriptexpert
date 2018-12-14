@@ -40,15 +40,10 @@
     </div>
 
     <div ng-if="Auth.author">
-        <form class="about-me " id="main-form" method="post" name="test" onsubmit="valid(this)">
+        <form name="MailingList" method="post" onSubmit="return ValidateForm()">
             
-                <select name="selectChoice" id="selectChoice" >
-                    <option value="Choice 1">Choice 1</option>
-                    <option value="Choice 2">Choice 2</option>
-                    <option value="Choice 3">Choice 3</option>
-                </select>
-                <textarea cols="40" rows="8" name="textarea" id="textarea" ></textarea>
-                <button id="submit">jghfkjldjlfjgdkljhkl</button>
+                <textarea cols="40" rows="8" name="text" ></textarea>
+                <input id="submitbutton" type="submit" name="Submit" value="Sign me up!">
             </div>
 
             

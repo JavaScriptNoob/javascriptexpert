@@ -109,7 +109,10 @@ main, #messages-card {
   display: flex;
   flex-direction: row;
   width: calc(100% - 48px);
-  float: left;
+  /* float: left; */
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 25px;
 }
 #image-form {
   display: flex;
@@ -209,6 +212,7 @@ main, #messages-card {
   margin-right:auto;
   max-width:1600px;
   background-color: #ffffff;
+  padding: 15px;
   
   
   margin-top:-155px;
@@ -221,7 +225,7 @@ border:1px double rgba(247, 161, 0, 0.329) ;
 .justify-content-center {
 
 
-  width: 100%;
+  width: 40%;
   margin-left: auto;
   margin-right:auto;
 }
@@ -274,4 +278,9 @@ border:1px double rgba(247, 161, 0, 0.329) ;
 .two-buttons
 {
   display: flex;
+}
+#submitImage, .mdl-snackbar__action{
+  visibility: hidden;
+  display: none;
+  
 }

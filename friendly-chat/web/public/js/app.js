@@ -55,7 +55,7 @@ function get_coords_by_uid(user_id){
 					center: [56.064188, 12.717836
 
                     ],
-                    zoom: 18
+                    zoom: 6
                     
 				}, {
 					searchControlProvider: 'yandex#search'
@@ -92,8 +92,10 @@ function get_coords_by_uid(user_id){
 		    myMap.geoObjects.add(yellowCollection);
             yellowCollection.events.add('click', function (e) {
               
-                document.getElementById("boss-contaier").classList.remove('unvisible');
-                document.getElementById("boss-contaier").classList.add('fade-in');
+                document.getElementById("boss-container").classList.remove('unvisible');
+                document.getElementById("boss-container").classList.add('fade-in');
+                document.getElementById("map").classlist.remove('mapStatic');
+                document.getElementById("map").classList.add('mapAnimation');
             });
 			// Через коллекции можно подписываться на события дочерних элементов.
 			//yellowCollection.events.add('click', function () { alert('Кликнули по желтой метке') });

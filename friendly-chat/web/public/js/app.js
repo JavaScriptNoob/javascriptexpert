@@ -90,7 +90,7 @@ function get_coords_by_uid(user_id){
             
 		
 		    myMap.geoObjects.add(yellowCollection);
-            yellowCollection.events.add('click', function (e) {console.log("jdnckdjncksjncksnck")
+            //yellowCollection.events.add('click', function (e) {console.log("jdnckdjncksjncksnck")
             document.getElementById("boss-contaier").classList.remove('unvisible');
             document.getElementById("boss-contaier").classList.add('fade-in');});
 			// Через коллекции можно подписываться на события дочерних элементов.
@@ -158,4 +158,3 @@ window.onload = function () {
 }
 
 		
-placemark.events.add('click', function (e) {console.log("jdnckdjncksjncksnck")});

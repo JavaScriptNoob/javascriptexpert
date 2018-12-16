@@ -1,14 +1,14 @@
 	
 angular.module('myApp').controller('authCtrl', 
 								  [	 
-								  	'$firebaseAuth', '$location',
+								  	'$firebaseAuth', '$location',"$scope",
 								  	iWillRuleOverTheWorld
 								  ]);
  var globalAuth;
  var userDateSaved;
  var imageUrl;
  var id;
- function iWillRuleOverTheWorld ($firebaseAuth,$location) {
+ function iWillRuleOverTheWorld ($firebaseAuth,$location,$scope) {
  	    var someOccupiedCountries = this;
 	
  		var auth = $firebaseAuth();
@@ -40,7 +40,7 @@ angular.module('myApp').controller('authCtrl',
 		
  		console.log('ffff',imageUrl, userDateSaved);
  	 	 $location.url("login");
- 		 $scope.$apply(); 
+ 		//  $scope.$apply(); 
  	}
  	});
 

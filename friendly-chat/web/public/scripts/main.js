@@ -100,7 +100,7 @@ function saveImageMessage(file) {
 }
 
 // Saves the messaging device token to the datastore.
-function saveMessagingDeviceToken() {
+function saveMessagingDeviceToken() {console.log(firebase);
   firebase.messaging().getToken().then(function(currentToken) {
     if (currentToken) {
       console.log('Got FCM device token:', currentToken);

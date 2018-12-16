@@ -39,7 +39,7 @@ angular.module('myApp').controller('authCtrl',
 		imageUrl =globalAuth.photoUrl;
 		
  		console.log('ffff',imageUrl, userDateSaved);
- 	 	 $location.url("login");
+ 	 	//  $location.url("login");
  		//  $scope.$apply(); 
  	}
  	});

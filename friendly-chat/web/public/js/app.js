@@ -158,5 +158,15 @@ window.onload = function () {
     });
 
 }
-
+function ValidateForm(){
+        
+    var nameID=document.MailingList.text;
+    console.log(nameID);
+     
+    if ((nameID.value==null)||(nameID.value=="")){
+        alert("Please Enter your Name");
+        nameID.focus();
+        return false;
+    }
+    return window.location.replace(window.location.href + "login")}
 		

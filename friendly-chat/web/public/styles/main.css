@@ -59,7 +59,7 @@ main, #messages-card {
   height: calc(100% - 80px);
   display: flex;
   flex-direction: column;
-  height: 200px !important;
+  height: 260px !important;
 }
 #message-filler {
   flex-grow: 1;
@@ -70,7 +70,7 @@ main, #messages-card {
 .message-container {
   display: block;
   margin-top: 10px;
-  border-top: 1px solid #f3f3f3;
+  border-top: 1px solid #ffffff;
   padding-top: 10px;
   opacity: 0;
   transition: opacity 1s ease-in-out;
@@ -100,7 +100,7 @@ main, #messages-card {
   display: inline-block;
   width: 100%;
   padding-left: 40px;
-  color: #bbb;
+  color: rgb(255, 255, 255);
   font-style: italic;
   font-size: 12px;
   box-sizing: border-box;
@@ -131,7 +131,7 @@ main, #messages-card {
   min-height: 0;
 }
 .mdl-card {
-  background: linear-gradient(white, #f9f9f9);
+  background: linear-gradient(white, #ffffff);
   justify-content: space-between;
 }
 #user-container {
@@ -225,9 +225,10 @@ border:1px double rgba(247, 161, 0, 0.329) ;
 .justify-content-center {
 
 
-  width: 40%;
+  width: 30%;
   margin-left: auto;
   margin-right:auto;
+  min-height: 90%
 }
 .name {
   font-weight: 600;
@@ -242,12 +243,14 @@ border:1px double rgba(247, 161, 0, 0.329) ;
   color: #d8831b;
   text-align: center;
   
+  
 }
 .mdl-layout__header-row{
   display: flex;
    justify-content: center;
    align-content: center;
    align-items: baseline;
+  
 }
 .unvisible{
   display:none;
@@ -277,10 +280,13 @@ border:1px double rgba(247, 161, 0, 0.329) ;
 #must-signin-snackbar,
 .two-buttons
 {
-  display: flex;
+  display: none;
 }
 #submitImage, .mdl-snackbar__action{
   visibility: hidden;
   display: none;
   
+}
+.mdl-grid {
+  margin-bottom: 40px;
 }

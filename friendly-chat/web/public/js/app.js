@@ -94,7 +94,7 @@ function get_coords_by_uid(user_id){
               
                 document.getElementById("boss-container").classList.remove('unvisible');
                 document.getElementById("boss-container").classList.add('fade-in');
-                document.getElementById("map").classlist.remove('mapStatic');
+                document.getElementById("map").classList.remove("mapStatic");
                 document.getElementById("map").classList.add('mapAnimation');
             });
 			// Через коллекции можно подписываться на события дочерних элементов.

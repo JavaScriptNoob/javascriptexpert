@@ -90,9 +90,11 @@ function get_coords_by_uid(user_id){
             
 		
 		    myMap.geoObjects.add(yellowCollection);
-            //yellowCollection.events.add('click', function (e) {console.log("jdnckdjncksjncksnck")
-            document.getElementById("boss-contaier").classList.remove('unvisible');
-            document.getElementById("boss-contaier").classList.add('fade-in');});
+            yellowCollection.events.add('click', function (e) {
+              
+                document.getElementById("boss-contaier").classList.remove('unvisible');
+                document.getElementById("boss-contaier").classList.add('fade-in');
+            });
 			// Через коллекции можно подписываться на события дочерних элементов.
 			//yellowCollection.events.add('click', function () { alert('Кликнули по желтой метке') });
 			//blueCollection.events.add('click', function () { alert('Кликнули по синей метке') });

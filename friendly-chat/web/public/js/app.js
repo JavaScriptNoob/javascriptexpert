@@ -47,7 +47,7 @@ function get_coords_by_uid(user_id){
         console.log("Error:" + error.code)
     });
 };
-	
+	if(window.location.href.indexOf("login")){
 		function init() {
             console.log("User coordinates :", users_coords);
 
@@ -109,7 +109,7 @@ setTimeout(function(e) {
     ymaps.ready(init);
 }, 7000);
 	
-
+}
 var subBut = document.getElementById('submit');
 if (subBut) {
     subBut.addEventListener('click', function(){

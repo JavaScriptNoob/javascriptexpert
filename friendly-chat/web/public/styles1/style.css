@@ -135,3 +135,11 @@ div#user-container{
     top: -10%;
     left:-5%;
 }
+.img-fluid{
+    width: 100% !important;
+}
+.texred{
+ margin:25px;
+ margin-left: 15px;
+
+}

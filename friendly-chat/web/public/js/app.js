@@ -47,10 +47,10 @@ function get_coords_by_uid(user_id){
         console.log("Error:" + error.code)
     });
 };
-	if(window.location.href.indexOf("login")){
+	if(window.location.href.indexOf("login") > 0 ){
 		function init() {
             console.log("User coordinates :", users_coords);
-
+console.log(window.location.href);
 			var myMap = new ymaps.Map("map", {
 					center: [56.064188, 12.717836
 
@@ -77,11 +77,12 @@ function get_coords_by_uid(user_id){
                 console.log("My Random Coords", lan, lon)
 
 				yellowCollection.add(new ymaps.Placemark([lan, lon ],{
-                    balloonContentBody: [
+                    balloonContentBody: ['<div class="balloonStyle" >',
+                    '<img src="http://www.bestfunnypic.com/data/girl/2018-09-07_swedish-girl.jpg" width="100px" height="100px" style="border-radius:50px;" >','</img>',
                         '<address>',
                         '<strong>' + users_names[key] + '</strong>',
                         '<br/>',
-                        '</address>'
+                        '</address>', '</div>'
                     ].join('')
                 }, {
                     preset: 'islands#yellowIcon'

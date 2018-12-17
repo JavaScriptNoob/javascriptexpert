@@ -80,6 +80,8 @@ textarea{
     background-color: rgb(255, 255, 255);
     border:2px double rgba(255, 148, 9, 0.603);
     border-radius: 15px;
+    height: 10%;
+    width: 60%;
 }
 .rounded{
     
@@ -88,7 +90,7 @@ textarea{
    width: 95%;
     height:50px !important;
   }
-  button{
+  .toHem, button{
     border-radius:15px;
     border:2px double rgba(247, 161, 0, 0.329);
     background-color: rgb(255, 255, 255);
@@ -139,7 +141,13 @@ div#user-container{
     width: 100% !important;
 }
 .texred{
- margin:25px;
+ /* margin:25px; */
  margin-left: 15px;
 
+}
+strong {
+    color:rgb(0, 0, 0);
+}
+.ymaps-2-1-71-balloon__layout {
+  background-color: orange;
 }

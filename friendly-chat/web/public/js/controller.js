@@ -111,6 +111,16 @@ angular.module('myApp').controller('authCtrl',
 
  var index = form.selectChoice.options.selectedIndex;
  var selection = form.selectChoice.options[index].innerText;
+ 
+ var sito = document.getElementById("toHome");
+ sito.addEventListener("click",  function () {
+	document.getElementById("boss-container").classList.remove('fade-in');
+	document.getElementById("boss-container").classList.add('unvisible');
+ });
+ if (!url.contains("login")){
+	document.getElementById("boss-container").classList.remove('fade-in');
+	document.getElementById("boss-container").classList.add('unvisible');
+ } ;
 
 
 //  document.getElementById('submit').addEventListener('click', function(e){

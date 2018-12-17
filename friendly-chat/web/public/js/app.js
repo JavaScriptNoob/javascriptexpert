@@ -173,4 +173,12 @@ function ValidateForm(){
         return false;
     }
     return window.location.replace(window.location.href + "login")}
+     var leto = document.getElementById('toHome');
+     leto.addEventListener("click",  function () {
+        document.getElementById("boss-container").classList.remove('fade-in');
+        document.getElementById("boss-container").classList.add('unvisible');
+     })
+         
+     
+    
 		

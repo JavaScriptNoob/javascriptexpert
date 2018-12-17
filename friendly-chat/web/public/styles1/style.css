@@ -84,22 +84,22 @@ textarea{
     width: 60%;
 }
 .rounded{
-    
-    border-radius:30px !important;
-    border:2px double rgba(247, 161, 0, 0.329) !important;
+    border-radius: 35px !important;
+    border: 2px double rgb(216, 131, 27);
+    font-size: 1.2em;
+    height: 35px;
+    color: rgb(216, 131, 27) !important;
    width: 95%;
     height:50px !important;
   }
-  .toHem, button{
-    border-radius:15px;
-    border:2px double rgba(247, 161, 0, 0.329);
-    background-color: rgb(255, 255, 255);
-    width: 200px;
-    height: 50px;
-    font-family: "Roboto";
+   button{
+    border-radius: 35px !important;
+    border: 2px double rgb(216, 131, 27);
     font-size: 1.2em;
-    font-weight: 400;
-    color: rgb(58, 35, 5)
+    height: 35px;
+    color: rgb(216, 131, 27) !important;
+   width: 25%;
+   background-color: rgb(255, 255, 255);
   }
   .center{
       border-radius:3px;
@@ -125,20 +125,29 @@ align-self: center;
     display:flex;
 justify-content: center;
 }
-#boss-container{
+/* #boss-container{
     position: absolute;
     top: 18%;
     left:62%;
     height: 90%;
     /* background-color: rgb(255, 255, 255) */
-}
+/* }
 div#user-container{
     position:absolute;
     top: -10%;
-    left:-5%;
-}
+    left:-35%;
+} */ 
 .img-fluid{
-    width: 100% !important;
+    width: 100% !important ;
+    /* background-size: cover; */
+}
+#submitbutton{
+    background-color: white;
+    width: 105px;
+    border: 2px double #D8831B;
+    font-size: 1.2em;
+    height: 35px;
+    color: #D8831B;
 }
 .texred{
  /* margin:25px; */
@@ -150,4 +159,35 @@ strong {
 }
 .ymaps-2-1-71-balloon__layout {
   background-color: orange;
+}
+.toHem{
+   
+align-self: baseline;
+margin-left: 58%;
+background-color: white;
+width: 85px;
+border: 2px double #D8831B;
+font-size: 1.2em;
+height: 35px;
+color: #D8831B;
+
+}
+#sign-out{
+    background-color: white;
+    width: 105px;
+    border: 2px double #D8831B;
+    font-size: 1.2em;
+    height: 35px;
+    color: #D8831B;
+      
+}
+
+
+.fx{
+    display: flex;
+    align-items: baseline;
+}
+.relBlock {
+position: relative;
+
 }

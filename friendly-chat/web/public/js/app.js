@@ -67,6 +67,7 @@ console.log(window.location.href);
 				//	preset: 'islands#blueIcon'
                 //}),   
             
+               
                 console.log("Placing coords on the map...", users_coords)
 
             for (var key in users_coords){
@@ -88,7 +89,6 @@ console.log(window.location.href);
                     preset: 'islands#yellowIcon'
                 }));
 			}
-            
 		
 		    myMap.geoObjects.add(yellowCollection);
             yellowCollection.events.add('click', function (e) {
@@ -97,6 +97,7 @@ console.log(window.location.href);
                 document.getElementById("boss-container").classList.add('fade-in');
                 document.getElementById("map").classList.remove("mapStatic");
                 document.getElementById("map").classList.add('mapAnimation');
+                myMap.container.fitToViewport(true);
             });
 			// Через коллекции можно подписываться на события дочерних элементов.
 			//yellowCollection.events.add('click', function () { alert('Кликнули по желтой метке') });

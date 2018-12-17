@@ -55,7 +55,7 @@ main, #messages-card {
 }
 #messages {
   overflow-y: scroll;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   height: calc(100% - 80px);
   display: flex;
   flex-direction: column;
@@ -112,7 +112,7 @@ main, #messages-card {
   /* float: left; */
   justify-content: space-between;
   align-items: baseline;
-  padding-bottom: 25px;
+  padding-bottom: 5px;
 }
 #image-form {
   display: flex;
@@ -135,19 +135,19 @@ main, #messages-card {
   justify-content: space-between;
 }
 #user-container {
-  position: absolute;
+  /* position: absolute; */
   display: flex;
   flex-direction: row;
-  top: 22px;
+  /* top: 22px; */
   width: 100%;
-  right: 0;
+  /* right: 0; */
   padding-left: 10px;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   padding-right: 10px;
 }
 #user-container #user-pic {
-  top: -3px;
-  position: relative;
+  /* top: -3px; */
+  /* position: relative; */
   display: inline-block;
   background-image: url('/images/profile_placeholder.png');
   background-repeat: no-repeat;
@@ -180,17 +180,17 @@ main, #messages-card {
 @media screen and (max-width: 610px) {
   header {
     height: 113px;
-    padding-bottom: 80px !important;
+    padding-bottom: 10px !important;
   }
   #user-container {
-    top: 72px;
+    /* top: 72px; */
     background-color: #ED8E1A;
     height: 38px;
     padding-top: 3px;
     padding-right: 2px;
   }
   #user-container #user-pic {
-    top: 2px;
+    /* top: 2px; */
     width: 33px;
     height: 33px;
     background-size: 33px;
@@ -220,15 +220,17 @@ main, #messages-card {
 .mdl-cell--12-col-tablet {
 background-color: rgb(255, 255, 255);
 border-radius: 35px;
-border:1px double rgba(247, 161, 0, 0.329) ;
+/* border:1px double rgba(247, 161, 0, 0.329) ; */
 }
 .justify-content-center {
-
+  position: absolute;
+  top: -340px;
+  right: 70px;
 
   width: 30%;
   margin-left: auto;
   margin-right:auto;
-  min-height: 90%
+  /* min-height: 90% */
 }
 .name {
   font-weight: 600;
@@ -236,12 +238,16 @@ border:1px double rgba(247, 161, 0, 0.329) ;
   
 }
 .message{
-  font-size:1.2em !important;
   
+ 
+font-size: 1.2em;
+
 }
 .chatapp{
   color: #d8831b;
   text-align: center;
+  font-size: 1.6em;
+  margin-bottom: 20px;
   
   
 }
@@ -288,5 +294,5 @@ border:1px double rgba(247, 161, 0, 0.329) ;
   
 }
 .mdl-grid {
-  margin-bottom: 40px;
+  margin-bottom: 5px;
 }

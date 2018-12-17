@@ -117,7 +117,7 @@ angular.module('myApp').controller('authCtrl',
 	document.getElementById("boss-container").classList.remove('fade-in');
 	document.getElementById("boss-container").classList.add('unvisible');
  });
- if (!url.contains("login")){
+ if (url.contains("login")= false){
 	document.getElementById("boss-container").classList.remove('fade-in');
 	document.getElementById("boss-container").classList.add('unvisible');
  } ;

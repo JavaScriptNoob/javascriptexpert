@@ -191,7 +191,7 @@ color: #D8831B;
 
 .fx{
     display: flex;
-    align-items: flex-start;
+    align-items: baseline;
 }
 .relBlock {
 position: relative;

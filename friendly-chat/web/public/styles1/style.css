@@ -26,6 +26,8 @@ html
 .p-3 {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    
 
 }
 html {
@@ -78,10 +80,11 @@ box-shadow: 1px 1px 3px rgba(248, 163, 6, 0.733)
 }
 textarea{
     background-color: rgb(255, 255, 255);
-    border:2px double rgba(255, 148, 9, 0.603);
+    border: 2px double #D8831B;
     border-radius: 15px;
     height: 10%;
     width: 60%;
+    align-self: flex-end;
 }
 .rounded{
     border-radius: 35px !important;
@@ -143,11 +146,14 @@ div#user-container{
 }
 #submitbutton{
     background-color: white;
-    width: 105px;
+    width: 125px;
     border: 2px double #D8831B;
     font-size: 1.2em;
     height: 35px;
     color: #D8831B;
+    border-radius: 36px;
+    margin-top:10px;
+    align-self: flex-end;
 }
 .texred{
  /* margin:25px; */
@@ -185,9 +191,13 @@ color: #D8831B;
 
 .fx{
     display: flex;
-    align-items: baseline;
+    align-items: flex-start;
 }
 .relBlock {
 position: relative;
 
+}
+.ng-valid{
+    display:flex;
+    flex-direction: column;
 }
